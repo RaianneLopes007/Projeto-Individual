@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito';
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+body {
+    background-color: #f9ecdc;
+}
+
+/* ----------- HEADER ------------ */
+
+.header {
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo_container {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    gap: 10px;
+}
+
+.logo_container img {
+    height: 8vh ;
+}
+
+.logo_container h2 {
+    display: flex;
+    color: #3D4A80;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+}
+
+.logo_container span {
+    display: flex;
+    color: #F07842;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    padding-left: 5px;
+    
+}
+
+.nav {
+    display: flex;
+    width: 30%;
+    align-items: center;
+    
+}
+
+.nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.nav ul li{
+    list-style: none;
+}
+
+.nav a {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    color: #6D6870;
+}
+
+.btn-cadastro a {
+    color: #F07842;
+    border-color: #F07842;
+    border: 1px solid;
+    border-radius: 100px;
+    padding: 10px;
+}
+
+.btn-login a {
+    background-color: #F07842;
+    color: #ffffff;
+    border-radius: 100px;
+    padding: 10px;
+}
+
+.nav a:hover {
+    color: #C94E25;
+    transform: translateY(-2px);
+}
+
+.btn-login a:hover {
+    background-color: #C94E25;
+    color: #ffffff;
+}
