@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: #f9ecdc;
+    background-color: #fbf0e4;
     height: 100vh;
 }
 
@@ -31,7 +31,7 @@ body {
 }
 
 .logo_container img {
-    height: 8vh ;
+    height: 8vh;
 }
 
 .logo_container h2 {
@@ -49,14 +49,14 @@ body {
     align-items: center;
     font-style: italic;
     padding-left: 5px;
-    
+
 }
 
 .nav {
     display: flex;
     width: 35%;
     align-items: center;
-    
+
 }
 
 .nav ul {
@@ -64,10 +64,10 @@ body {
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    
+
 }
 
-.nav ul li{
+.nav ul li {
     list-style: none;
 }
 
@@ -115,9 +115,9 @@ body {
 .banner {
     width: 99vw;
     padding: 0, 20px;
-   
-    background-image:  linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)),
-    url('../../public/img/Banner_home.jpg');
+
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)),
+        url('../../public/img/Banner_home.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -125,7 +125,7 @@ body {
 }
 
 
-.banner .container .linha {
+.banner .container .linha_banner {
     display: flex;
     height: 2px;
     width: 2vw;
@@ -179,12 +179,12 @@ body {
     padding: 10px;
     border-radius: 20px;
 }
-    
+
 .btn_banner a:hover {
     background-color: #C94E25;
     transform: translateY(-2px);
 }
-    
+
 
 .btn_banner img {
     display: flex;
@@ -194,3 +194,694 @@ body {
 }
 
 
+/* -----------CONTEÚDO HOME--------------- */
+
+.home {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title_home .text1 {
+    display: flex;
+    width: 50vw;
+    padding-top: 70px;
+    color: #C94E25;
+    padding-left: 10%;
+    font-size: 130%;
+}
+
+.title_home h1 {
+    display: flex;
+    width: 50vw;
+    margin-left: 9%;
+    margin-top: 20px;
+    font-size: 500%;
+    font-style: italic;
+}
+
+.title_home span {
+    display: flex;
+    color: #F07842;
+    padding-left: 10px;
+    font-style: italic;
+
+}
+
+.container_text p {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    align-items: center;
+    color: #828394;
+    font-size: 110%;
+}
+
+.divisor {
+    /*Responsável por dividir o título da home com o conteúdo*/
+    display: flex;
+    margin-top: -3%;
+    height: 1px;
+    background: #c2b9b0;
+}
+
+/* ------------ JAZZ -------------- */
+
+.jazz {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+
+}
+
+.img_jazz img {
+    display: flex;
+    width: 50vw;
+    height: 70vh;
+    margin-top: 40px;
+    margin-left: 40px;
+    border-radius: 40px;
+
+}
+
+.descricao p {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    margin-top: 50px;
+    margin-left: 40px;
+    justify-content: flex-start;
+    align-self: center;
+    font-size: 130%;
+    color: #C94E25;
+
+}
+
+.descricao h1 {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    margin-top: -250px;
+    margin-left: 40px;
+    justify-content: flex-start;
+    align-self: center;
+    font-size: 350%;
+    color: #323138;
+}
+
+.descricao .text {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    margin-top: -235px;
+    margin-left: 40px;
+    justify-content: center;
+    align-items: center;
+    color: #828394;
+
+}
+
+.data_music {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.btn_jazz {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 40px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #F07842;
+    border-radius: 50%;
+}
+
+.btn_jazz .play_icon {
+    display: flex;
+    width: 16px;
+    height: 20px;
+    margin-left: 3px;
+    background-color: #ffffff;
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+
+}
+
+
+.information_music p {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    justify-content: flex-start;
+    align-self: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: #8d887c;
+    font-size: 100%;
+}
+
+.information_music .title_music {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    justify-content: flex-start;
+    align-self: center;
+    margin-top: -270px;
+    margin-left: 20px;
+    font-size: 100%;
+}
+
+.information_music .autor {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    justify-content: flex-start;
+    align-self: center;
+    margin-top: -270px;
+    margin-left: 20px;
+    font-size: 100%;
+}
+
+.divisor_jazz {
+    /*Responsável por dividir o título da home com o conteúdo*/
+    display: flex;
+    margin-top: -10%;
+    height: 1px;
+    background: #c2b9b0;
+}
+
+/* ------- CARIMBÓ ------------ */
+
+
+.carimbó {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+
+}
+
+.img_carimbó img {
+    display: flex;
+    width: 50vw;
+    height: 70vh;
+    margin-top: 40px;
+    margin-left: 40px;
+    border-radius: 40px;
+
+}
+
+.descricao p {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    margin-top: 50px;
+    margin-left: 40px;
+    justify-content: flex-start;
+    align-self: center;
+    font-size: 130%;
+    color: #C94E25;
+
+}
+
+.descricao h1 {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    margin-top: -250px;
+    margin-left: 40px;
+    justify-content: flex-start;
+    align-self: center;
+    font-size: 350%;
+    color: #323138;
+}
+
+.descricao .text {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    margin-top: -235px;
+    margin-left: 40px;
+    justify-content: center;
+    align-items: center;
+    color: #828394;
+
+}
+
+.data_music {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.btn_carimbó {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 40px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #F07842;
+    border-radius: 50%;
+}
+
+.btn_carimbó .play_icon {
+    display: flex;
+    width: 16px;
+    height: 20px;
+    margin-left: 3px;
+    background-color: #ffffff;
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+
+}
+
+
+.information_music p {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    justify-content: flex-start;
+    align-self: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: #8d887c;
+    font-size: 100%;
+}
+
+.information_music .title_music {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    justify-content: flex-start;
+    align-self: center;
+    margin-top: -270px;
+    margin-left: 20px;
+    font-size: 100%;
+}
+
+.information_music .autor {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    justify-content: flex-start;
+    align-self: center;
+    margin-top: -270px;
+    margin-left: 20px;
+    font-size: 100%;
+}
+
+.divisor_carimbó {
+    /*Responsável por dividir o título da home com o conteúdo*/
+    display: flex;
+    margin-top: -10%;
+    height: 1px;
+    background: #c2b9b0;
+}
+
+/* ---------- TANGO -------------- */
+
+.tango {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+
+}
+
+.img_tango img {
+    display: flex;
+    width: 50vw;~
+    height: 70vh;
+    margin-top: 40px;
+    margin-left: 40px;
+    border-radius: 40px;
+
+}
+
+.descricao p {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    margin-top: 50px;
+    margin-left: 40px;
+    justify-content: flex-start;
+    align-self: center;
+    font-size: 130%;
+    color: #C94E25;
+
+}
+
+.descricao h1 {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    margin-top: -250px;
+    margin-left: 40px;
+    justify-content: flex-start;
+    align-self: center;
+    font-size: 350%;
+    color: #323138;
+}
+
+.descricao .text {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    margin-top: -235px;
+    margin-left: 40px;
+    justify-content: center;
+    align-items: center;
+    color: #828394;
+
+}
+
+.data_music {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.btn_tango {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 40px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #F07842;
+    border-radius: 50%;
+}
+
+.btn_tango .play_icon {
+    display: flex;
+    width: 16px;
+    height: 20px;
+    margin-left: 3px;
+    background-color: #ffffff;
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+
+}
+
+
+.information_music p {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    justify-content: flex-start;
+    align-self: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: #8d887c;
+    font-size: 100%;
+}
+
+.information_music .title_music {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    justify-content: flex-start;
+    align-self: center;
+    margin-top: -270px;
+    margin-left: 20px;
+    font-size: 100%;
+}
+
+.information_music .autor {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    justify-content: flex-start;
+    align-self: center;
+    margin-top: -270px;
+    margin-left: 20px;
+    font-size: 100%;
+}
+
+.divisor_tango {
+    /*Responsável por dividir o título da home com o conteúdo*/
+    display: flex;
+    margin-top: -8%;
+    height: 1px;
+    background: #c2b9b0;
+}
+
+/* ---------- HIP-HOP --------------- */
+
+.hip_hop {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+
+}
+
+.img_hip img {
+    display: flex;
+    width: 50vw;
+    height: 70vh;
+    margin-top: 40px;
+    margin-left: 40px;
+    border-radius: 40px;
+
+}
+
+.descricao p {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    margin-top: 50px;
+    margin-left: 40px;
+    justify-content: flex-start;
+    align-self: center;
+    font-size: 130%;
+    color: #C94E25;
+
+}
+
+.descricao h1 {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    margin-top: -250px;
+    margin-left: 40px;
+    justify-content: flex-start;
+    align-self: center;
+    font-size: 350%;
+    color: #323138;
+}
+
+.descricao .text {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    margin-top: -235px;
+    margin-left: 40px;
+    justify-content: center;
+    align-items: center;
+    color: #828394;
+
+}
+
+.data_music {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.btn_hip {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 40px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #F07842;
+    border-radius: 50%;
+}
+
+.btn_hip .play_icon {
+    display: flex;
+    width: 16px;
+    height: 20px;
+    margin-left: 3px;
+    background-color: #ffffff;
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+
+}
+
+
+.information_music p {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    justify-content: flex-start;
+    align-self: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: #8d887c;
+    font-size: 100%;
+}
+
+.information_music .title_music {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    justify-content: flex-start;
+    align-self: center;
+    margin-top: -270px;
+    margin-left: 20px;
+    font-size: 100%;
+}
+
+.information_music .autor {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    justify-content: flex-start;
+    align-self: center;
+    margin-top: -270px;
+    margin-left: 20px;
+    font-size: 100%;
+}
+
+.divisor_hip {
+    /*Responsável por dividir o título da home com o conteúdo*/
+    display: flex;
+    margin-top: -10%;
+    height: 1px;
+    background: #c2b9b0;
+}
+
+/* --------DANÇA DO VENTRE ------------- */
+
+
+.danca_ventre {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+
+}
+
+.img_danca_ventre img {
+    display: flex;
+    width: 50vw;
+    height: 70vh;
+    margin-top: 40px;
+    margin-left: 40px;
+    border-radius: 40px;
+
+}
+
+.descricao p {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    margin-top: 50px;
+    margin-left: 40px;
+    justify-content: flex-start;
+    align-self: center;
+    font-size: 130%;
+    color: #C94E25;
+
+}
+
+.descricao h1 {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    margin-top: -250px;
+    margin-left: 40px;
+    justify-content: flex-start;
+    align-self: center;
+    font-size: 350%;
+    color: #323138;
+}
+
+.descricao .text {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    margin-top: -235px;
+    margin-left: 40px;
+    justify-content: center;
+    align-items: center;
+    color: #828394;
+
+}
+
+.data_music {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.btn_danca_ventre {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 40px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #F07842;
+    border-radius: 50%;
+}
+
+.btn_danca_ventre .play_icon {
+    display: flex;
+    width: 16px;
+    height: 20px;
+    margin-left: 3px;
+    background-color: #ffffff;
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+
+}
+
+
+.information_music p {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    justify-content: flex-start;
+    align-self: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: #8d887c;
+    font-size: 100%;
+}
+
+.information_music .title_music {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    justify-content: flex-start;
+    align-self: center;
+    margin-top: -270px;
+    margin-left: 20px;
+    font-size: 100%;
+}
+
+.information_music .autor {
+    display: flex;
+    width: 40vw;
+    height: 40vh;
+    justify-content: flex-start;
+    align-self: center;
+    margin-top: -270px;
+    margin-left: 20px;
+    font-size: 100%;
+}
+
+.divisor_danca_ventre {
+    /*Responsável por dividir o título da home com o conteúdo*/
+    display: flex;
+    margin-top: -10%;
+    height: 1px;
+    background: #c2b9b0;
+}
