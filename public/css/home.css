@@ -117,7 +117,7 @@ body {
     padding: 0, 20px;
 
     background-image: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)),
-        url('../../public/img/Banner_home.jpg');
+        url('../../public/assets/img/Banner_home.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -512,7 +512,7 @@ body {
 
 .img_tango img {
     display: flex;
-    width: 50vw;~
+    width: 50vw;
     height: 70vh;
     margin-top: 40px;
     margin-left: 40px;
@@ -884,4 +884,85 @@ body {
     margin-top: -10%;
     height: 1px;
     background: #c2b9b0;
+}
+
+/* ---------- FOOTER ----------------- */
+
+/* PRÉ-FOOTER */
+
+.footer {
+    display: flex;
+    width: 100vw;
+}
+
+.pre_footer {
+    display: flex;
+    width: 100vw;
+    height: 50vh;
+    flex-direction: column;
+    background: linear-gradient(45deg, #B8534D 0%, #7A2A58 40%, #6A4276 100%);
+
+
+}
+
+.pre_footer p {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    color: #F0B579;
+    font-size: 130%;
+}
+
+.pre_footer h1 {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-top: 20px;
+    color: #FFFFFF;
+    font-size: 300%;
+}
+
+.pre_footer span {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-top: 5px;
+    color: #F0B579;
+    font-size: 300%;
+    font-style: italic;
+}
+
+.btn_footer {
+    display: flex;
+    height: 90px;
+    justify-content: center;
+    align-self: center;
+    padding-top: 15px;
+}
+
+.btn_footer a {
+    display: flex;
+    transition: transform 0.2s ease;
+    color: #FFFFFF;
+    background-color: #F07842;
+    align-items: center;
+    text-decoration: none;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 20px;
+
+}
+
+
+.btn_footer a:hover {
+    background-color:#C94E25;
+    transform: translateY(-2px);
+}
+
+
+.btn_footer img {
+    display: flex;
+    height: 4vh;
+    padding-left: 50px;
+
 }
