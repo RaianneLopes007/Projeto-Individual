@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito';
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+body {
+    background-color: #fbf0e4;
+    height: 100vh;
+}
+
+
+/* ----------- HEADER ------------ */
+
+.header {
+    display: flex;
+    width: auto;
+    background-color: #ffffff;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo_container {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    gap: 10px;
+}
+
+.logo_container img {
+    height: 8vh;
+}
+
+.logo_container h2 {
+    display: flex;
+    color: #3D4A80;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+}
+
+.logo_container span {
+    display: flex;
+    color: #F07842;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    padding-left: 5px;
+
+}
+
+.nav {
+    display: flex;
+    width: 35%;
+    align-items: center;
+
+}
+
+.nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+}
+
+.nav ul li {
+    list-style: none;
+}
+
+.nav a {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    color: #6D6870;
+}
+
+.btn-cadastro a {
+    color: #F07842;
+    border-color: #F07842;
+    border: 1px solid;
+    border-radius: 100px;
+    padding: 10px;
+}
+
+.btn-login a {
+    background-color: #F07842;
+    color: #ffffff;
+    border-radius: 100px;
+    padding: 10px;
+}
+
+.nav a:hover {
+    color: #C94E25;
+    transform: translateY(-2px);
+}
+
+.btn-login a:hover {
+    background-color: #C94E25;
+    color: #ffffff;
+}
+
+/* -------- BANNER ---------- */
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 89vh;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../assets/img/banner_cadastro.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* ------------ CARD_CADASTRO -------------- */
+
+.card-cadastro {
+    display: flex;
+    width: 45%;
+    height: 65%;
+    flex-direction: column;
+    padding-top: 40px;
+    color: #C94E25;
+    background-color: #faeee0de;
+    align-items: center;
+    border-radius: 10px;
+    border: 3px solid;
+    border-color: #C94E25;
+
+}
+
+
+.card-cadastro .formulario span {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-left: -85px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.card-cadastro .formulario input {
+    display: flex;
+    width: 200%;
+    text-align: center;
+    margin-left: -85px;
+    border-radius: 4px;
+    border: 2px solid;
+    border-color: #de9f81;
+}
+
+
+
+.card-cadastro .formulario .botao {
+    display: flex;
+    width: 110%;
+    height: 10%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    color: #ffffff;
+    background-color: #C94E25;
+    border-radius: 10px;
+    border: none;
+}
+
+.card-cadastro .formulario .link_login {
+    display: flex;
+    padding-top: 15px;
+}
+
+.card-cadastro .formulario .link_login a {
+    padding-left: 4px;
+    color: #ae3e09;
+}
