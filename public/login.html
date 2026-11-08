@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/login.css">
-    <link rel="icon" href="../assets/img/Logo.jpg">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="icon" href="./assets/img/Logo.jpg">
 
     <title>Solare Dance | Login</title>
 
-    <script src="./js/sessao.js"></script>
+    <script src="../js/sessao.js"></script>
 
 </head>
 
@@ -19,21 +19,21 @@
     <!--Header-->
     <header class="header">
         <div class="logo_container">
-            <img src="../assets/img/Logo.jpg" alt="Solare Dance">
+            <img src="./assets/img/Logo.jpg" alt="Solare Dance">
             <h2 class="logo">Solare <span class="logo"> Dance</span></h2>
         </div>
 
         <nav class="nav">
             <ul>
-                <li><a href="../home/home.html">Home</a></li>
+                <li><a href="./index.html">Home</a></li>
                 <li><a href="#">Sobre Mim</a></li>
 
                 <div class="btn-cadastro">
-                    <li><a href="../cadastro/cadastro.html">Cadastro</a></li>
+                    <li><a href="./cadastro.html">Cadastro</a></li>
                 </div>
 
                 <div class="btn-login">
-                    <li><a href="#">Login</a></li>
+                    <li><a href="./login.html">Login</a></li>
                 </div>
 
             </ul>
@@ -70,9 +70,12 @@
 
                     <button class="botao" onclick="entrar()">Entrar</button>
 
+
+                    <div id="div_aguardar" class="loading-div"></div>
+
                     <div class="link_cadastro">
                         <p>Ainda não possui conta? </p>
-                        <a href="../cadastro/cadastro.html"> Clique aqui</a>
+                        <a href="./cadastro.html"> Clique aqui</a>
                     </div>
                 </div>
 
@@ -129,12 +132,11 @@
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    sessionStorage.ID_USUARIO = json.idUsuario;
 
                     setTimeout(function () {
                         window.location = "./dashboard/cards.html";
-                    }, 1000); // apenas para exibir o loading
+                    }, 200); // apenas para exibir o loading
 
                 });
 
