@@ -2,11 +2,11 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <link rel="icon" href="../assets/img/Logo.jpg" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Tempo Real</title>
+    <title>Solare Dance| Quiz</title>
 
 
     <link rel="stylesheet" href="./../css/dashboards.css">
@@ -22,68 +22,35 @@
 
 <body onload="validarSessao(), exibirAquarios(),  atualizacaoPeriodica()">
 
-    <div class="janela">
-
-        <div class="header-left dash-header">
-
-            <h1>Solare Dance</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav">
-                <h3>Aquários e Terrários</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
+    <header class="header">
+        <div class="logo_container">
+            <img src="../assets/img/Logo.jpg" alt="Solare Dance">
+            <h2 class="logo">Solare <span class="logo"> Dance</span></h2>
         </div>
 
+        <nav class="nav">
+            <ul>
+                <li><a href="./cards.html">Quiz</a></li>
+                <li><a href="./dashboard.html">Desempenho</a></li>
 
-        <div class="cards" id="cardAquarios">
+                <!-- Alterar o nome desse button depois -->
 
-        </div>
+                <div class="btn-cadastro"> 
+                    <li><a href="../cadastro.html">Studios</a></li>
+                </div>
+                <div class="hello">
+                    <h3><span id="b_usuario">usuário</span>!</h3>
+                </div>
 
-    </div>
+            </ul>
 
-    </div>
+        </nav>
+    </header>
 
+    
 </body>
 
 <script>
-
-    function exibirAquarios() {
-        JSON.parse(sessionStorage.AQUARIOS).forEach(item => {
-            document.getElementById("cardAquarios").innerHTML += `
-                    <div class="card-aquario">
-                        <div class="title-aquario">
-                            <h1>${item.descricao}</h1>
-                        </div>
-                        <div class="desc-aquario">
-                        <div class="temperatura">
-                            <p id="temp_aquario_${item.id}">-°C</p>
-                        </div>
-                        <div class="cor-alerta" id="card_${item.id}"></div>
-                    </div>
-                    </div>
-                    `
-        });
-    }
 
 </script>
 
