@@ -150,6 +150,7 @@
         }
     ];
 
+    var resultado;
     var indicePergunta = 0;
     var acertos = 0;
     var respondida = false;
@@ -237,6 +238,39 @@
         }
     }
 
+    function enviarRespostas() {
+
+        console.log(resultado.acertos);
+        console.log(resultado.idUsuario);
+        
+
+        fetch("/quiz/enviarRespostas", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+
+                acertos: resultado.acertos,
+                idUsuario: resultado.idUsuario
+
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                } else {
+                    throw "Houve um erro ao tentar enviar as respostas!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
+
     function finalizarQuiz() {
         document.getElementById("quiz_pergunta").style.display = "none";
         document.getElementById("quiz_resultado").style.display = "block";
@@ -244,12 +278,12 @@
 
         document.getElementById("quiz_pontuacao").innerHTML = "Você acertou <b>" + acertos + "</b> de <b>" + perguntas.length + "</b> perguntas!";
 
-        var resultado = {
+        resultado = {
             acertos: acertos,
-            total: perguntas.length,
-            data: new Date().toLocaleString("pt-BR")
+            idUsuario: sessionStorage.getItem('ID_USUARIO')
         };
-        sessionStorage.QUIZ_RESULTADO = JSON.stringify(resultado);
+
+        enviarRespostas();
     }
 
     function reiniciarQuiz() {
