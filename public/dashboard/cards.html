@@ -20,7 +20,7 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), exibirAquarios(),  atualizacaoPeriodica()">
+<body onload="validarSessao(), iniciarQuiz()">
 
     <header class="header">
         <div class="logo_container">
@@ -35,11 +35,16 @@
 
                 <!-- Alterar o nome desse button depois -->
 
-                <div class="btn-cadastro"> 
+                <div class="btn-studio">
                     <li><a href="../cadastro.html">Studios</a></li>
                 </div>
+
                 <div class="hello">
                     <h3><span id="b_usuario">usuário</span>!</h3>
+                </div>
+
+                <div class="btn-logout" onclick="limparSessao()">
+                    <h3>Sair</h3>
                 </div>
 
             </ul>
@@ -47,10 +52,209 @@
         </nav>
     </header>
 
-    
+    <div class="header-quiz">
+
+        <div class="texto-linha">
+            <h1>Quiz Solare Dance</h1>
+        </div>
+
+
+    </div>
+
+    <div class="quiz-container">
+        <div class="card-quiz">
+
+            <div id="quiz_pergunta">
+                <div class="quiz-progresso">
+                    <p id="quiz_contador">Pergunta 1 de 10</p>
+                    <div class="barra-progresso">
+                        <div class="barra-progresso_fill" id="barra_progresso"></div>
+                    </div>
+                </div>
+
+                <p id="quiz_enunciado" class="quiz-pergunta"></p>
+
+                <div id="quiz_alternativas" class="quiz-alternativas"></div>
+
+                <p id="quiz_feedback" class="quiz-feedback"></p>
+
+                <button id="quiz_btn_proxima" class="btn-quiz" onclick="proximaPergunta()"
+                    style="display: none;">Próxima</button>
+            </div>
+
+            <div id="quiz_resultado" class="quiz-resultado" style="display: none;">
+                <h2>Resultado do Quiz</h2>
+                <p class="pontuacao" id="quiz_pontuacao"></p>
+                <p>Continue explorando os estilos de dança na nossa home!</p>
+                <button class="btn-quiz" onclick="reiniciarQuiz()">Jogar novamente</button>
+            </div>
+
+        </div>
+    </div>
+
 </body>
 
 <script>
+
+    var perguntas = [
+        {
+            enunciado: "Em qual cidade e país surgiu o Jazz?",
+            alternativas: ["Buenos Aires, Argentina", "Nova Orleans, Estados Unidos", "Paris, França"],
+            correta: 1
+        },
+        {
+            enunciado: "Qual característica é marcante no estilo Jazz?",
+            alternativas: ["Improvisação e expressividade corporal", "Movimentos exclusivamente sincronizados em pares", "Movimentos focados apenas na utilização dos pés"],
+            correta: 0
+        },
+        {
+            enunciado: "Em qual estado brasileiro surgiu o Carimbó?",
+            alternativas: ["Bahia", "Amazonas", "Pará"],
+            correta: 2
+        },
+        {
+            enunciado: "Quais são as três principais influências culturais presentes na formação do Carimbó?",
+            alternativas: ["Africana, Europeia e Indígena", "Asiática, Europeia e Americana", "Africana, Asiática e Árabe"],
+            correta: 0
+        },
+        {
+            enunciado: "Em quais países surgiu o Tango?",
+            alternativas: ["Brasil e Chile", "Argentina e Uruguai", "Espanha e Portugal"],
+            correta: 1
+        },
+        {
+            enunciado: "Em que ano o Tango foi reconhecido pela UNESCO como Patrimônio Cultural Imaterial da Humanidade?",
+            alternativas: ["2005", "2014", "2009"],
+            correta: 2
+        },
+        {
+            enunciado: "Em qual década e cidade surgiu o movimento Hip-Hop?",
+            alternativas: ["Década de 1970, em Nova York", "Década de 1980, em Los Angeles", "Década de 1960, em Chicago"],
+            correta: 0
+        },
+        {
+            enunciado: "Quais elementos artísticos fazem parte da cultura Hip-Hop apresentada no site?",
+            alternativas: ["Teatro, pintura e música clássica", "Rap, Break e Grafites", "Samba, Ballet e Jazz"],
+            correta: 1
+        },
+        {
+            enunciado: "Qual é o outro nome utilizado para a Dança do Ventre no Oriente?",
+            alternativas: ["Raqs Baladi", "Raqs Sharqi", "Dabke"],
+            correta: 1
+        },
+        {
+
+            enunciado: "Em qual período a Dança do Ventre foi consolidada a partir do encontro entre culturas locais e influências externas?",
+            alternativas: ["No século XVIII", "No final do século XIX e início do século XX", "No século XX"],
+            correta: 1
+        }
+    ];
+
+    var indicePergunta = 0;
+    var acertos = 0;
+    var respondida = false;
+
+    function iniciarQuiz() {
+        indicePergunta = 0;
+        acertos = 0;
+        exibirPergunta();
+    }
+
+    function exibirPergunta() {
+        respondida = false;
+
+        var pergunta = perguntas[indicePergunta];
+
+        document.getElementById("quiz_pergunta").style.display = "block";
+        document.getElementById("quiz_resultado").style.display = "none";
+
+        document.getElementById("quiz_contador").textContent = "Pergunta " + (indicePergunta + 1) + " de " + perguntas.length;
+        document.getElementById("barra_progresso").style.width = ((indicePergunta + 1) / perguntas.length * 100) + "%";
+
+        document.getElementById("quiz_enunciado").textContent = pergunta.enunciado;
+
+        var divAlternativas = document.getElementById("quiz_alternativas");
+        divAlternativas.innerHTML = "";
+
+        var letras = ["A", "B", "C"];
+        for (var i = 0; i < pergunta.alternativas.length; i++) {
+            var botao = document.createElement("button");
+            botao.className = "alternativa";
+            botao.innerHTML = "<span class='letra'>" + letras[i] + "</span>" + pergunta.alternativas[i];
+            botao.setAttribute("onclick", "responder(" + i + ")");
+            divAlternativas.appendChild(botao);
+        }
+
+        var feedback = document.getElementById("quiz_feedback");
+        feedback.innerHTML = "";
+        feedback.className = "quiz-feedback";
+
+        document.getElementById("quiz_btn_proxima").style.display = "none";
+        document.getElementById("quiz_btn_proxima").textContent = "Próxima";
+    }
+
+    function responder(indiceAlternativa) {
+        if (respondida) {
+            return;
+        }
+        respondida = true;
+
+        var pergunta = perguntas[indicePergunta];
+        var botoes = document.querySelectorAll("#quiz_alternativas .alternativa");
+
+        for (var i = 0; i < botoes.length; i++) {
+            botoes[i].disabled = true;
+            if (i === pergunta.correta) {
+                botoes[i].classList.add("correta");
+            } else if (i === indiceAlternativa) {
+                botoes[i].classList.add("incorreta");
+            }
+        }
+
+        var feedback = document.getElementById("quiz_feedback");
+
+        if (indiceAlternativa === pergunta.correta) {
+            acertos++;
+            feedback.innerHTML = "Resposta correta!";
+            feedback.className = "quiz-feedback acerto";
+        } else {
+            feedback.innerHTML = "Resposta incorreta! A resposta certa era: <b>" + pergunta.alternativas[pergunta.correta] + "</b>.";
+            feedback.className = "quiz-feedback erro";
+        }
+
+        var btnProxima = document.getElementById("quiz_btn_proxima");
+        btnProxima.style.display = "inline-block";
+        // o ponto de interrogação representa uma forma simplificada do if (operador ternário)
+        btnProxima.textContent = (indicePergunta === perguntas.length - 1) ? "Ver resultado" : "Próxima";
+    }
+
+    function proximaPergunta() {
+        if (indicePergunta === perguntas.length - 1) {
+            finalizarQuiz();
+        } else {
+            indicePergunta++;
+            exibirPergunta();
+        }
+    }
+
+    function finalizarQuiz() {
+        document.getElementById("quiz_pergunta").style.display = "none";
+        document.getElementById("quiz_resultado").style.display = "block";
+        document.getElementById("barra_progresso").style.width = "100%";
+
+        document.getElementById("quiz_pontuacao").innerHTML = "Você acertou <b>" + acertos + "</b> de <b>" + perguntas.length + "</b> perguntas!";
+
+        var resultado = {
+            acertos: acertos,
+            total: perguntas.length,
+            data: new Date().toLocaleString("pt-BR")
+        };
+        sessionStorage.QUIZ_RESULTADO = JSON.stringify(resultado);
+    }
+
+    function reiniciarQuiz() {
+        iniciarQuiz();
+    }
 
 </script>
 
