@@ -1,4 +1,3 @@
-/* pagina mural */
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +13,7 @@ body {
 }
 
 
-/* PAGINA DOS GRÁFICOS 2023-2026 */
+/* HEADER - QUIZ */
 
 .header {
   display: flex;

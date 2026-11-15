@@ -2,15 +2,15 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <link rel="icon" href="../assets/img/Logo.jpg" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Dashboards</title>
+    <title>Solare Dance | Desempenho</title>
 
-    
-    <link rel="stylesheet" href="./../css/dashboards.css">
-    <link rel="stylesheet" href="./../css/estilo.css" />
+
+    <link rel="stylesheet" href="../css/dashboard.css">
+
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
 
@@ -30,48 +30,44 @@
 
 <body>
 
-    <div class="janela">
-        <div class="header-left">
-            <h1>Solare Dance</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./cards.html">
-                    <h3>Quiz</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav">
-
-                <h3>Desempenho</h3>
-
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
+    <header class="header">
+        <div class="logo_container">
+            <img src="../assets/img/Logo.jpg" alt="Solare Dance">
+            <h2 class="logo">Solare <span class="logo"> Dance</span></h2>
         </div>
 
-        <div class="dash">
-            <div id="alerta">
-            </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="./quiz.html">Quiz</a></li>
+                <li><a href="./dashboard.html">Desempenho</a></li>
 
-            <div class="btns-dash" id="btnAquario">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-            </div>
-            <div id="graficos">
-            </div>
+                <div class="btn-studio">
+                    <li><a href="#">Studios</a></li>
+                </div>
+
+                <div class="hello">
+                    <h3><span id="b_usuario">usuário</span>!</h3>
+                </div>
+
+                <div class="btn-logout" onclick="limparSessao()">
+                    <h3>Sair</h3>
+                </div>
+
+            </ul>
+
+        </nav>
+    </header>
+
+    <div class="dash">
+        <div id="alerta">
         </div>
+
+        <div class="btns-dash" id="btnAquario">
+            <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
+        </div>
+        <div id="graficos">
+        </div>
+    </div>
     </div>
 
 
@@ -204,13 +200,13 @@
         let dados = {
             labels: labels,
             datasets: [
-            {
-                label: 'Temperatura',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(199, 52, 52)',
-                tension: 0.1
-            }]
+                {
+                    label: 'Temperatura',
+                    data: [],
+                    fill: false,
+                    borderColor: 'rgb(199, 52, 52)',
+                    tension: 0.1
+                }]
         };
 
         console.log('----------------------------------------------')
