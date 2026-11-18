@@ -13,7 +13,6 @@ senha VARCHAR(100)
 CREATE TABLE tentativa_user (
 idTentativa INT PRIMARY KEY AUTO_INCREMENT,
 fk_usuario INT,
-acertos INT NOT NULL,
 dt_conclusao DATETIME DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario)
 );

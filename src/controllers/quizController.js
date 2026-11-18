@@ -2,18 +2,14 @@ var quizModel = require("../models/quizModel");
 
 
 function enviarTentativa(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var idUsuario = req.body.idUsuario;
 
     console.log(idUsuario);
 
-
-    // Faça as validações dos valores
     if (idUsuario == undefined) {
         res.status(400).send("idUsuario está undefined!");
     } else {
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         quizModel.enviarTentativa(idUsuario)
             .then(
                 function (resultado) {
@@ -33,9 +29,7 @@ function enviarTentativa(req, res) {
 }
 
 async function enviarRespostas(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    console.log('passei aqui');
-    
+
     var respostas = req.body.respostas;
     var idUsuario = req.body.idUsuario;
 
@@ -48,10 +42,14 @@ async function enviarRespostas(req, res) {
 
         if (id_pergunta == undefined) {
             res.status(400).send("o id_pergunta está undefined!");
-        } else if(id_alternativa == undefined) {
-            res.status(400).send("o id_alternativa está undefined!"); 
-        } else if(id_tentativa == undefined) {
-            res.status(400).send("o id_tentativa está undefined!"); 
+        } else if (id_alternativa == undefined) {
+            res.status(400).send("o id_alternativa está undefined!");
+        } else if (id_tentativa == undefined) {
+            res.status(400).send("o id_tentativa está undefined!");
+        } else if (idUsuario == undefined) {
+            res.status(400).send("O idUsuario está undefined!");
+        } else if (respostas == undefined) {
+            res.status(400).send("a respostas está undefined");
         } else {
 
             // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
@@ -76,7 +74,37 @@ async function enviarRespostas(req, res) {
 
 }
 
+async function buscarDesempenhoPorCategoria(req, res) {
+    var idUsuario = req.body.idUsuario;
+
+    console.log(idUsuario);
+
+    if (idUsuario == undefined) {
+        res.status(400).send("idUsuario está undefined!");
+    } else {
+
+        quizModel.enviarTentativa(idUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao tentar enviar respostas! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+
+
 module.exports = {
     enviarTentativa,
-    enviarRespostas
+    enviarRespostas,
+    buscarDesempenhoPorCategoria
 }
