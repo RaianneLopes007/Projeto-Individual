@@ -1,18 +1,35 @@
-var database = require("../database/config")
 
-// Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
-function enviarRespostas(acertos, idUsuario) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function enviarRespostas():", acertos, idUsuario);
-    
-    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-    //  e na ordem de inserção dos dados.
+var database = require("../database/config");
+
+async function enviarTentativa(idUsuario) {
+
     var instrucaoSql = `
-        INSERT INTO tentativa_user (acertos, fk_usuario) VALUES ('${acertos}', '${idUsuario}');
+        INSERT INTO tentativa_user (fk_usuario)
+        VALUES (${idUsuario});
     `;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+
+    console.log("Executando INSERT da tentativa:");
+
+    var resultado = await database.executar(instrucaoSql);
+    var idTentativa = resultado.insertId;
+
+    return idTentativa;
+}
+
+async function enviarRespostas(id_tentativa, id_pergunta, id_alternativa){
+    var instrucaoRespostas = `
+        INSERT INTO resposta_user
+        (fk_tentativa, fk_pergunta, fk_alternativa)
+        VALUES (${id_tentativa}, ${id_pergunta}, ${id_alternativa});
+    `;
+
+    console.log("Executando INSERT das respostas:");
+
+    await database.executar(instrucaoRespostas);
+
 }
 
 module.exports = {
-   enviarRespostas
+    enviarTentativa,
+    enviarRespostas
 };
