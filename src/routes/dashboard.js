@@ -3,10 +3,9 @@ var router = express.Router();
 
 var dashboardController = require("../controllers/dashboardController");
 
-router.get("/dashboard/", function (req, res) {
-  dashboardController.notaTentativa (req, res);
+router.get("/buscarDesempenhoPorCategoria/:idUsuario", function (req, res) {
+  dashboardController.buscarDesempenhoPorCategoria(req, res);
 });
-
 
 
 

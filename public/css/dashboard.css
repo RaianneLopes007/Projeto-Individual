@@ -121,3 +121,10 @@ body {
     font-size: 105%;
     margin-right: 15px;
 }
+
+/* -------- GRÁFICO --------------- */
+
+.grafico {
+    display: flex;
+    width: 50%;
+}

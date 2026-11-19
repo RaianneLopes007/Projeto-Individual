@@ -12,8 +12,5 @@ router.post("/enviarRespostas", function (req, res) {
     quizController.enviarRespostas(req, res);
 })
 
-router.get("/buscarDesempenhoPorCategoria", function (req, res) {
-    quizController.buscarDesempenhoPorCategoria(req, res);
-})
 
 module.exports = router;
