@@ -122,6 +122,64 @@ body {
     margin-right: 15px;
 }
 
+/* ------------ PRÉ GRÁFICO ----------------*/
+
+.container_pre-grafico {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 35%;
+
+}
+
+.titulo_grafico .linha_titulo_grafico {
+    display: flex;
+    height: 2px;
+    width: 2vw;
+    margin-right: 5px;
+    margin-left: 50px;
+    align-self: center;
+    background: #EF6A32;
+}
+
+.titulo_grafico .text {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    color: #D36138;
+    font-size: 100%;
+}
+
+.subtitulo h1 {
+    display: flex;
+    padding-top: 20px;
+    margin-left: 50px;
+    color: #172943;
+    font-size: 350%;
+}
+
+.subtitulo span {
+    display: flex;
+    margin-left: 20px;
+    color: #EF6A32;
+}
+
+.texto_pre-grafico {
+    display: flex;
+    padding-top: 20px;
+    margin-left: 50px;
+    color: #667183;
+    font-size: 110%;
+}
+
+.linha_separacao span {
+    display: flex;
+    height: 2px;
+    margin-top: 50px;
+    align-self: center;
+    background: #DFD3C4;
+}
+
 /* -------- GRÁFICO --------------- */
 
 .grafico {

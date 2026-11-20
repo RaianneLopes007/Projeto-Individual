@@ -6,7 +6,7 @@ async function buscarDesempenhoPorCategoria(req, res) {
     console.log(idUsuario);
 
     if (idUsuario == undefined) {
-        res.status(400).send("idUsuario está undefined!");
+        return  res.status(400).send("idUsuario está undefined!");
     } else {
 
         dashboardModel.buscarDesempenhoPorCategoria(idUsuario)

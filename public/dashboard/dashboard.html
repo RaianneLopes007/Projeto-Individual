@@ -14,18 +14,11 @@
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-
     <!-- scripts do Chart.js - 2022-1 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 </head>
-
-<!-- <body onload=" atualizarFeed()"> -->
 
 <body>
 
@@ -57,6 +50,26 @@
         </nav>
     </header>
 
+    <div class="container_pre-grafico">
+
+        <div class="titulo_grafico">
+            <h3 class="text"><span class="linha_titulo_grafico"></span> Seu painel de conhecimento</h3> 
+        </div>
+
+        <div class="subtitulo">
+            <h1>Seu ritmo de <span>aprendizado.</span></h1>
+            
+        </div>
+
+        <p class="texto_pre-grafico">
+            Acompanhe seu desempenho e descubra o quanto você já conhece sobre os ritmos que movem o mundo.
+        </p>
+
+        <div class="linha_separacao">
+            <span></span>
+        </div>
+        
+    </div>
 
     <div class="grafico">
         <canvas id="desempenho"></canvas>
@@ -78,14 +91,6 @@
 
         buscarDesempenhoPorCategoria(idUsuario);
     }
-
-
-    // function alterarTitulo(idAquario) {
-    //     var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
-    //     var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idAquario).descricao;
-    //     tituloAquario.innerHTML = "Últimas medidas do <span style='color: #e6005a'>" + descricao + "</span>"
-    // }
-
 
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
@@ -173,7 +178,8 @@
                 scales: {
                     y: {
 
-                        beginAtZero: true
+                        min: 0,
+                        max: 2
                     }
                 }
             },
@@ -185,12 +191,5 @@
             config
         );
     }
-
-
-    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-    // buscando a última medida inserida em tabela contendo as capturas,
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
 
 </script>
