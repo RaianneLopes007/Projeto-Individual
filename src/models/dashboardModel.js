@@ -17,11 +17,29 @@ async function buscarDesempenhoPorCategoria(idUsuario) {
         ORDER BY FIELD(p.categoria, 'Jazz', 'Hip-hop', 'Dança do ventre', 'Tango', 'Carimbó')
     `;
 
-    console.log("Executando SELECT da última tentativa");
+    console.log("Executando SELECT da tentativa atual");
 
     return await database.executar(intrucaoGrafico);
 }
 
+async function totalRespostasCertas(idUsuario) {
+
+    var intrucaoKpi = `
+        SELECT
+            SUM(a.correta) AS acertos,
+            COUNT(*) AS total_questoes
+        FROM tentativa_user t
+        JOIN resposta_user r ON r.fk_tentativa = t.idTentativa
+        JOIN alternativa   a ON a.idAlternativa = r.fk_alternativa
+        WHERE t.fk_usuario = ${idUsuario};
+    `;
+
+    console.log("Executando SELECT da soma total de acertos");
+
+    return await database.executar(intrucaoKpi);
+}
+
 module.exports = {
-    buscarDesempenhoPorCategoria
+    buscarDesempenhoPorCategoria,
+    totalRespostasCertas
 };

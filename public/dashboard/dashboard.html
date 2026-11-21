@@ -53,12 +53,12 @@
     <div class="container_pre-grafico">
 
         <div class="titulo_grafico">
-            <h3 class="text"><span class="linha_titulo_grafico"></span> Seu painel de conhecimento</h3> 
+            <h3 class="text"><span class="linha_titulo_grafico"></span> Seu painel de conhecimento</h3>
         </div>
 
         <div class="subtitulo">
             <h1>Seu ritmo de <span>aprendizado.</span></h1>
-            
+
         </div>
 
         <p class="texto_pre-grafico">
@@ -68,7 +68,61 @@
         <div class="linha_separacao">
             <span></span>
         </div>
-        
+
+    </div>
+
+    <div class="container_pre-kpi">
+
+        <div class="mini-text">
+            <p>Resultado da tentativa</p>
+        </div>
+
+        <div class="titulo_kpi">
+            <h2>Como foi o seu compasso?</h2>
+        </div>
+    </div>
+
+    <div class="container_kpis">
+
+        <div class="kpi_total_acertos">
+
+            <div class="header_kpi_acertos">
+                <p>Respostas Certas</p>
+                <img src="../assets/img/kpi_acertos.png" alt="">
+            </div>
+
+            <h1 id="totalAcertos"></h1>
+
+            <h3>acertos</h3>
+            <p id="total_questoes"></p>
+        </div>
+
+        <div class="kpi_total_erros">
+
+            <div class="header_kpi_erros">
+                <p>Pontos a Rever</p>
+                <img src="../assets/img/kpi_erro.png" alt="">
+            </div>
+
+            <h1 id="totalErros"></h1>
+
+            <h3>erros</h3>
+            <p id="questoes_respondidas"></p>
+        </div>
+
+        <div class="kpi_total_evolucao">
+
+            <div class="header_kpi_evolucao">
+                <p>Evolução</p>
+                <img src="../assets/img/kpi_evolucao.png" alt="">
+            </div>
+
+            <h1 id="evolucao"></h1>
+
+            <h3>acertos</h3>
+            <p>em relação à sua última tentativa</p>
+        </div>
+
     </div>
 
     <div class="grafico">
@@ -80,7 +134,37 @@
 </html>
 
 <script>
+
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    const totalAcertosElemento = document.getElementById(`totalAcertos`);
+    const totalQuestoes = document.getElementById(`total_questoes`)
+    const totalErros = document.getElementById(`totalErros`);
+    const errosQuestoes = document.getElementById(`questoes_respondidas`);
+    let diferenca = 0;
+
+    function totalAcertos(idUsuario) {
+        fetch(`/dashboard/totalRespostasCertas/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);                    
+
+                    totalAcertosElemento.textContent = resposta[0].acertos;
+                    totalQuestoes.textContent = ` De ${resposta[0].total_questoes} questões respondidas`;
+                    
+                    diferenca = resposta[0].total_questoes - resposta[0].acertos;
+
+                    totalErros.textContent = diferenca;
+                    errosQuestoes.textContent = `De ${resposta[0].total_questoes} questões respondidas`;
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    } totalAcertos(sessionStorage.getItem('ID_USUARIO'))
 
     let proximaAtualizacao;
     // exibirAquario pode ser um nome que eu criarei 
@@ -105,8 +189,6 @@
     //     Para ajustar o "select", ajuste o comando sql em src/models
 
     function buscarDesempenhoPorCategoria(idUsuario) {
-
-
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
         }

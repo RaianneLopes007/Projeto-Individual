@@ -7,6 +7,8 @@ router.get("/buscarDesempenhoPorCategoria/:idUsuario", function (req, res) {
   dashboardController.buscarDesempenhoPorCategoria(req, res);
 });
 
-
+router.get("/totalRespostasCertas/:idUsuario", function (req, res) {
+  dashboardController.totalRespostasCertas(req, res);
+});
 
 module.exports = router;

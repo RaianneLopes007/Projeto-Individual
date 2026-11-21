@@ -129,7 +129,6 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     height: 35%;
-
 }
 
 .titulo_grafico .linha_titulo_grafico {
@@ -148,6 +147,8 @@ body {
     margin-top: 50px;
     color: #D36138;
     font-size: 100%;
+    font-style: italic;
+
 }
 
 .subtitulo h1 {
@@ -156,12 +157,16 @@ body {
     margin-left: 50px;
     color: #172943;
     font-size: 350%;
+    font-style: italic;
+
 }
 
 .subtitulo span {
     display: flex;
     margin-left: 20px;
     color: #EF6A32;
+    font-style: italic;
+
 }
 
 .texto_pre-grafico {
@@ -170,6 +175,8 @@ body {
     margin-left: 50px;
     color: #667183;
     font-size: 110%;
+    font-style: italic;
+
 }
 
 .linha_separacao span {
@@ -180,9 +187,197 @@ body {
     background: #DFD3C4;
 }
 
-/* -------- GRÁFICO --------------- */
+/* -------- ELEMENTOS GRÁFICO --------------- */
+
+/* PRÉ KPI'S */
+
+.container_pre-kpi {
+    display: flex;
+    flex-direction: column;
+}
+
+.mini-text {
+    display: flex;
+    margin-top: 40px;
+    margin-left: 50px;
+    color: #CE4E20;
+    font-size: 110%;
+    font-style: italic;
+}
+
+.titulo_kpi h2 {
+    display: flex;
+    padding-top: 20px;
+    margin-left: 50px;
+    color: #172943;
+    font-size: 200%;
+    font-style: italic;
+}
+
+/* -------- KPI'S -------------- */
+
+.container_kpis {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+}
+
+/* KPI ACERTOS */
+
+.kpi_total_acertos {
+    width: 20%;
+    height: 250px;
+    margin-left: 50px;
+    border-top: solid 6px;
+    border-top-color: #172943;
+    background-color: white;
+}
+
+.header_kpi_acertos {
+    display: flex;
+    justify-content: space-around;
+}
+
+.header_kpi_acertos p {
+    color: #B5AFA8;
+    align-self: center;
+    margin-top: 20px;
+    font-size: 130%;
+    font-style: italic;
+}
+
+.header_kpi_acertos img {
+    height: 40px;
+    align-self: center;
+    margin-top: 20px;
+}
+
+.kpi_total_acertos #totalAcertos {
+    display: flex;
+    padding-left: 25px;
+    color: #172943;
+    font-size: 450%;
+}
+
+.kpi_total_acertos h3 {
+    color: #172943;
+    padding-top: 8px;
+    padding-left: 25px;
+    font-size: 150%;
+}
+
+.kpi_total_acertos #total_questoes {
+    color: #999088;
+    padding-left: 25px;
+    padding-top: 10px;
+}
+
+/* KPI'S ERROS */
+
+.kpi_total_erros {
+    width: 20%;
+    height: 250px;
+    margin-left: 50px;
+    border-top: solid 6px;
+    border-top-color: #EF6A32;
+    background-color: white;
+}
+
+.header_kpi_erros {
+    display: flex;
+    justify-content: space-around;
+}
+
+.header_kpi_erros p {
+    color: #B5AFA8;
+    align-self: center;
+    margin-top: 20px;
+    font-size: 130%;
+    font-style: italic;
+}
+
+.header_kpi_erros img {
+    height: 40px;
+    align-self: center;
+    margin-top: 20px;
+}
+
+.kpi_total_erros #totalErros {
+    display: flex;
+    padding-left: 25px;
+    color: #EF6A32;
+    font-size: 450%;
+}
+
+
+.kpi_total_erros h3 {
+    color: #172943;
+    padding-top: 8px;
+    padding-left: 25px;
+    font-size: 150%;
+}
+
+.kpi_total_erros #questoes_respondidas {
+    color: #999088;
+    padding-left: 25px;
+    padding-top: 10px;
+}
+
+/* KPI EVOLUÇÃO */
+
+
+.kpi_total_evolucao {
+    width: 20%;
+    height: 250px;
+    margin-right: 50px;
+    border-top: solid 6px;
+    border-top-color: #172943;
+    background-color: white;
+}
+
+.header_kpi_evolucao {
+    display: flex;
+    justify-content: space-around;
+}
+
+.header_kpi_evolucao p {
+    color: #B5AFA8;
+    align-self: center;
+    margin-top: 20px;
+    font-size: 130%;
+    font-style: italic;
+}
+
+.header_kpi_evolucao img {
+    height: 40px;
+    align-self: center;
+    margin-top: 20px;
+}
+
+.kpi_total_evolucao #evolucao {
+    display: flex;
+    padding-left: 25px;
+    color: #EF6A32;
+    font-size: 450%;
+}
+
+
+.kpi_total_evolucao h3 {
+    color: #172943;
+    padding-top: 8px;
+    padding-left: 25px;
+    font-size: 150%;
+}
+
+.kpi_total_evolucao p {
+    color: #999088;
+    padding-left: 25px;
+    padding-top: 10px;
+}
 
 .grafico {
     display: flex;
     width: 50%;
+    margin-top: 40px;
+    background-color: #ffffff;
 }
